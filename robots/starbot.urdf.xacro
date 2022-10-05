@@ -35,11 +35,6 @@
 
 
 
-
-
-
-
-
     
     <link name="trunk">
         <!-- TODO the trunk (it will be fixed to base link but it has inertia) -->
@@ -51,24 +46,37 @@
     <!-- TODO Include the legs (add parameters if necessary)-->
     
     <!-- LEFT FRONT LEG -->
-    <xacro:leg
-    prefix="lf"
-    robot_name="$(arg robot_name)"/>
+     <xacro:leg
+    	name="lf"
+    	parent="base_link"
+    	robot_name="$(arg robot_name)">
+    	<origin xyz="0.1 0.1 0.0" rpy="0 0 0"/>
+    </xacro:leg>
 
     <!-- RIGHT FRONT LEG -->
     <xacro:leg
-    prefix="rf"
-    robot_name="$(arg robot_name)"/>
-    
+    	name="rf"
+    	parent="base_link"
+    	robot_name="$(arg robot_name)">
+    	<origin xyz="0.1 -0.1 0.0" rpy="0 0 0"/>
+    </xacro:leg>
 
     <!-- LEFT HIND LEG -->
-    <xacro:leg
-    prefix="lh"
-    robot_name="$(arg robot_name)"/>
+     <xacro:leg
+    	name="lh"
+    	parent="base_link"
+    	robot_name="$(arg robot_name)">
+    	<origin xyz="-0.1 0.1 0.0" rpy="0 0 0"/>
+    </xacro:leg>
 
     <!-- RIGHT HIND LEG -->
     <xacro:leg
-    prefix="rh"
-    robot_name="$(arg robot_name)"/>
+    	name="rh"
+    	parent="base_link"
+    	robot_name="$(arg robot_name)">
+    	<origin xyz="-0.1 -0.1 0.0" rpy="0 0 0"/>
+    </xacro:leg>
+
+
     
 </robot>

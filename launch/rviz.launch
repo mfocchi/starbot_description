@@ -10,6 +10,9 @@
 	</include>
 
 	
+	<node pkg="tf" type="static_transform_publisher" name="world_broadcaster" args="0 0 0 0 0 0   /base_link /world  200"/>
+
+
    	<!-- joint_state_publisher publish joint states from sliders-->
         <node name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui"/>
 
@@ -21,7 +24,7 @@
 	</node>
 
 	<!-- run rviz -->
-	<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rviz_conf) -f trunk"/>
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rviz_conf) -f world"/>
 
 </launch>
 

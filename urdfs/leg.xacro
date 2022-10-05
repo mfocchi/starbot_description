@@ -9,7 +9,7 @@
 
 
     <!-- This macro has for purpose to define a leg -->
-    <xacro:macro name="leg" params="prefix robot_name">
+    <xacro:macro name="leg" params="name parent robot_name *origin ">
     
            <!-- TODO ADD JOINTS AND LINKS -->
 
@@ -21,7 +21,7 @@
 
 
         <!-- FOOT -->
-        <link name="${prefix}_foot">
+        <!--link name="${name}_foot"-->
             <!-- FOOT INERTIAL -->
            
             <!-- FOOT VISUAL -->
@@ -29,10 +29,10 @@
             <!-- FOOT COLLISION -->
            
 
-	</link> <!-- END FOOT LINK -->
+	<!--/link--> 
 
         <!-- Extensions -->
-        <xacro:leg_transmission name="${prefix}"/>
-        <xacro:leg_gazebo name="${prefix}" robot_name="${robot_name}"/>
+        <xacro:leg_transmission name="${name}"/>
+        <xacro:leg_gazebo name="${name}" robot_name="${robot_name}"/>
     </xacro:macro>
 </robot>
