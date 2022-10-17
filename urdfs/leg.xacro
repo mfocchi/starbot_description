@@ -13,23 +13,38 @@
     
            <!-- TODO ADD JOINTS AND LINKS -->
 
+	 <joint name="${name}_shoulder_pan" type="revolute">
+	    <parent link="${parent}"/>
+	    <child link="${name}_shoulder"/>
+	    <axis xyz="0 0 1"/>
+	    <xacro:insert_block name="origin"/>
+	    <limit effort="50" velocity="10.0" lower="-3.14" upper="3.14" />
+	  </joint>
 
 
-	  <!-- TODO ADD JOINTS AND LINKS -->
+	  <link name="${name}_shoulder">
+	      <inertial>
+		  <origin xyz="0.0 0.0 0.0"/>
+		  <mass value="0.05" />
+		  <inertia  ixx="0.001" ixy="0.0"  ixz="0.0"  iyy="0.001"  iyz="0.0"  izz="0.001" />
+	       </inertial>
+	      <visual>
+		<origin xyz="0 0.0 0.0" rpy="0 0 0"/>
+		<geometry>
+		    <box size="0.1 0.1 0.2"/>
+		</geometry>
+	      </visual>
+	     <collision>
+		<origin  xyz="0 0.0 0.0 " rpy="0 0 0"/>
+		<geometry>
+		    <box size="0.1 0.1 0.2"/>
+		</geometry>
+	     </collision>
+	  </link>
 
 
 
 
-        <!-- FOOT -->
-        <!--link name="${name}_foot"-->
-            <!-- FOOT INERTIAL -->
-           
-            <!-- FOOT VISUAL -->
-            
-            <!-- FOOT COLLISION -->
-           
-
-	<!--/link--> 
 
         <!-- Extensions -->
         <xacro:leg_transmission name="${name}"/>
