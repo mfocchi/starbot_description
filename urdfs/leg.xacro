@@ -6,44 +6,112 @@
     <!-- Things that are needed only for Gazebo (not the physical robot). These include sensor and controller plugin specifications -->
     <xacro:include filename="$(find starbot_description)/urdfs/leg.transmission.xacro"/>
     <xacro:include filename="$(find starbot_description)/urdfs/leg.gazebo.xacro"/>
+    
+    <!-- These are absoulte distance value, the sign are decided below -->
+    
+    <xacro:property name="MAX_TORQUE" value="0" />
+    <xacro:property name="VELOCITY" value="0" />
 
 
     <!-- This macro has for purpose to define a leg -->
-    <xacro:macro name="leg" params="name parent robot_name *origin ">
-    
-           <!-- TODO ADD JOINTS AND LINKS -->
+    <xacro:macro name="leg" params="name parent is_front is_right robot_name *origin">
+           
+          <!-- Starbot 1.0 -->
 
-	 <joint name="${name}_shoulder_pan" type="revolute">
-	    <parent link="${parent}"/>
-	    <child link="${name}_shoulder"/>
-	    <axis xyz="0 0 1"/>
-	    <xacro:insert_block name="origin"/>
-	    <limit effort="50" velocity="10.0" lower="-3.14" upper="3.14" />
-	  </joint>
-
-
-	  <link name="${name}_shoulder">
-	      <inertial>
-		  <origin xyz="0.0 0.0 0.0"/>
-		  <mass value="0.05" />
-		  <inertia  ixx="0.001" ixy="0.0"  ixz="0.0"  iyy="0.001"  iyz="0.0"  izz="0.001" />
-	       </inertial>
-	      <visual>
-		<origin xyz="0 0.0 0.0" rpy="0 0 0"/>
-		<geometry>
-		    <box size="0.1 0.1 0.2"/>
-		</geometry>
-	      </visual>
-	     <collision>
-		<origin  xyz="0 0.0 0.0 " rpy="0 0 0"/>
-		<geometry>
-		    <box size="0.1 0.1 0.2"/>
-		</geometry>
-	     </collision>
-	  </link>
-
-
-
+	  <!--BS_JOINT: Joint between the body and the shoulder -->
+            <joint name="${name}_bs_joint" type="revolute">
+                <parent link="${parent}"/>
+                <child link="${name}_shoulder"/>
+                <xacro:insert_block name="origin"/>
+                
+                <!-- joints rotates around the z-axis -->
+                <axis xyz="0 0 1"/>
+                
+                <!-- limit of the joint -->
+                <limit effort="${MAX_TORQUE}" lower="-3.14" upper="3.14" velocity="${VELOCITY}"/>
+            </joint>
+	  
+	  <!-- SHOULDER ASSEMBLY -->	
+            <link name="${name}_shoulder">
+            	<!-- create a dummy shoulder_assembly link to join the two joints -->
+            	<!--VISUAL-->	
+	        <visual>
+                    <xacro:if value="${is_front}">
+                        <xacro:unless value="${is_right}">
+                            <!-- LF SHOULDER -->
+                        	<geometry>
+                        	    <mesh filename="package://starbot_description/meshes/stl/shoulder.stl"/>
+                        	</geometry>
+                        </xacro:unless>
+                        <xacro:if value="${is_right}">
+                            <!-- RF SHOULDER-->
+                        	<geometry>
+                        	    <mesh filename="package://starbot_description/meshes/stl/shoulder.001.stl"/>
+                        	</geometry>
+                        </xacro:if>
+                    </xacro:if>
+                    <xacro:unless value="${is_front}">
+                        <xacro:unless value="${is_right}">
+                            <!-- LH SHOULDER -->
+                        	<geometry>
+                        	    <mesh filename="package://starbot_description/meshes/stl/shoulder.002.stl"/>
+                        	</geometry>
+                        </xacro:unless>
+                        <xacro:if value="${is_right}">
+                            <!-- RH SHOULDER -->
+                        	<geometry>
+                        	    <mesh filename="package://starbot_description/meshes/stl/shoulder.003.stl"/>
+                        	</geometry>
+                        </xacro:if>
+                    </xacro:unless>
+	                <material name="shoulder_color">
+                    		<color rgba="0.8 0.8 0.8 1.0"/>
+                	</material>
+	            </visual>
+	            
+	            <!--COLLISION-->	
+	            <collision>
+	            <origin xyz="0 0 0" rpy="0 0 0" />
+                    <xacro:if value="${is_front}">
+                        <xacro:unless value="${is_right}">
+                            <!-- LF_BS -->
+                        	<geometry>
+                        	    <box size="0.00651 0.0707 0.07002"/>
+                        	</geometry>
+                        </xacro:unless>
+                        <xacro:if value="${is_right}">
+                            <!-- RF_BS -->
+                        	<geometry>
+                        	    <box size="0.0707 0.00651 0.07002"/>
+                        	</geometry>
+                        </xacro:if>
+                    </xacro:if>
+                    <xacro:unless value="${is_front}">
+                        <xacro:unless value="${is_right}">
+                            <!-- LH_BS -->
+                        	<geometry>
+                        	    <box size="0.0707 0.00651 0.07002"/>
+                        	</geometry>
+                        </xacro:unless>
+                        <xacro:if value="${is_right}">
+                            <!-- RH_BS -->
+                        	<geometry>
+                        	    <box size="0.00651 0.0707 0.07002"/>
+                        	</geometry>
+                        </xacro:if>
+                    </xacro:unless>
+	                <material name="shoulder_collision_color">
+      				<color rgba="0.8 0.8 0.8 1.0"/>
+    			</material>
+	            </collision>
+	    
+	            <!--INERTIAL -->
+	            <inertial>
+	            	<origin xyz="0 0 0" rpy="0 0 0" />
+	                <mass value="0.01"/>
+	                <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>          
+	            </inertial>
+	        </link> 
 
 
         <!-- Extensions -->
