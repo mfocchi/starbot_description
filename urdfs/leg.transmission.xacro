@@ -15,6 +15,30 @@
                                 <mechanicalReduction>1</mechanicalReduction>
                         </actuator>
                 </transmission>
+                
+         <!-- Upper leg -->
+                <transmission name="${name}_upper_leg_joint_trans">
+                        <type>transmission_interface/SimpleTransmission</type>
+                        <joint name="${name}_upper_leg_joint">
+                                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+                        </joint>
+                        <actuator name="${name}_upper_leg_joint_motor">
+                                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+                                <mechanicalReduction>1</mechanicalReduction>
+                        </actuator>
+                </transmission>
+                
+         <!-- Lower leg -->
+                <transmission name="${name}_lower_leg_joint_trans">
+                        <type>transmission_interface/SimpleTransmission</type>
+                        <joint name="${name}_lower_leg_joint">
+                                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+                        </joint>
+                        <actuator name="${name}_lower_leg_joint_motor">
+                                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+                                <mechanicalReduction>1</mechanicalReduction>
+                        </actuator>
+                </transmission>
       
       
          
