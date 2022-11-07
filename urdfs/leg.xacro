@@ -44,13 +44,13 @@
                         <xacro:unless value="${is_right}">
                             <!-- LF SHOULDER -->
                         	<geometry>
-                        	    <mesh filename="package://starbot_description/meshes/stl/shoulder.stl"/>
+                        	    <mesh filename="package://starbot_description/meshes/stl/shoulder_y.stl"/>
                         	</geometry>
                         </xacro:unless>
                         <xacro:if value="${is_right}">
                             <!-- RF SHOULDER-->
                         	<geometry>
-                        	    <mesh filename="package://starbot_description/meshes/stl/shoulder.001.stl"/>
+                        	    <mesh filename="package://starbot_description/meshes/stl/shoulder_x.stl"/>
                         	</geometry>
                         </xacro:if>
                     </xacro:if>
@@ -58,13 +58,13 @@
                         <xacro:unless value="${is_right}">
                             <!-- LH SHOULDER -->
                         	<geometry>
-                        	    <mesh filename="package://starbot_description/meshes/stl/shoulder.002.stl"/>
+                        	    <mesh filename="package://starbot_description/meshes/stl/shoulder_nx.stl"/>
                         	</geometry>
                         </xacro:unless>
                         <xacro:if value="${is_right}">
                             <!-- RH SHOULDER -->
                         	<geometry>
-                        	    <mesh filename="package://starbot_description/meshes/stl/shoulder.003.stl"/>
+                        	    <mesh filename="package://starbot_description/meshes/stl/shoulder_ny.stl"/>
                         	</geometry>
                         </xacro:if>
                     </xacro:unless>
@@ -80,13 +80,13 @@
                         <xacro:unless value="${is_right}">
                             <!-- LF_BS -->
                         	<geometry>
-                        	    <box size="0.00651 0.0707 0.07002"/>
+                        	    <box size="0.0707 0.00651 0.07002"/>
                         	</geometry>
                         </xacro:unless>
                         <xacro:if value="${is_right}">
                             <!-- RF_BS -->
                         	<geometry>
-                        	    <box size="0.0707 0.00651 0.07002"/>
+                        	    <box size="0.00651 0.0707 0.07002"/>
                         	</geometry>
                         </xacro:if>
                     </xacro:if>
@@ -94,13 +94,13 @@
                         <xacro:unless value="${is_right}">
                             <!-- LH_BS -->
                         	<geometry>
-                        	    <box size="0.0707 0.00651 0.07002"/>
+                        	    <box size="0.00651 0.0707 0.07002"/>
                         	</geometry>
                         </xacro:unless>
                         <xacro:if value="${is_right}">
                             <!-- RH_BS -->
                         	<geometry>
-                        	    <box size="0.00651 0.0707 0.07002"/>
+                        	    <box size="0.0707 0.00651 0.07002"/>
                         	</geometry>
                         </xacro:if>
                     </xacro:unless>
@@ -112,7 +112,7 @@
 	            <!--INERTIAL -->
 	            <inertial>
 	            	<origin xyz="0 0 0" rpy="0 0 0" />
-	                <mass value="0.01"/>
+	                <mass value="0.0001"/>
 	                <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>          
 	            </inertial>
 	        </link> 
@@ -131,29 +131,29 @@
                 <xacro:if value="${is_front}">
                     <xacro:unless value="${is_right}">
                         <!-- LF_UPPER_LEG_JOINT -->
-                        <axis xyz="0 1 0"/>
+                        <axis xyz="1 0 0"/>
                         <limit effort="${MAX_TORQUE}" lower="-3.14" upper="3.14" velocity="${VELOCITY}"/>
-                        <origin xyz="-${UPPER_LEG} 0 0" rpy="0 0 0" />
+                        <origin xyz="0 ${UPPER_LEG}  0" rpy="0 0 0" />
                     </xacro:unless>
                     <xacro:if value="${is_right}">
                         <!-- RF_UPPER_LEG_JOINT -->
-                        <axis xyz="-1 0 0"/>
+                        <axis xyz="0 1 0"/>
 			<limit effort="${MAX_TORQUE}" lower="-3.14" upper="3.14" velocity="${VELOCITY}"/>
-                        <origin xyz="0 -${UPPER_LEG} 0" rpy="0 0 0" />
+                        <origin xyz="${UPPER_LEG} 0 0" rpy="0 0 0" />
                     </xacro:if>
                 </xacro:if>
                 <xacro:unless value="${is_front}">
                     <xacro:unless value="${is_right}">
                         <!-- LH_UPPER_LEG_JOINT -->
-                        <axis xyz="1 0 0"/>
-			<limit effort="${MAX_TORQUE}" lower="-3.14" upper="3.14" velocity="${VELOCITY}"/>
-                        <origin xyz="0 ${UPPER_LEG} 0" rpy="0 0 0" />
-                    </xacro:unless>
-                    <xacro:if value="${is_right}">
-                        <!-- RF_UPPER_LEG_JOINT -->
                         <axis xyz="0 -1 0"/>
 			<limit effort="${MAX_TORQUE}" lower="-3.14" upper="3.14" velocity="${VELOCITY}"/>
-                        <origin xyz="${UPPER_LEG} 0 0" rpy="0 0 0" />
+                        <origin xyz="-${UPPER_LEG} 0 0" rpy="0 0 0" />
+                    </xacro:unless>
+                    <xacro:if value="${is_right}">
+                        <!-- RH_UPPER_LEG_JOINT -->
+                        <axis xyz="-1 0 0"/>
+			<limit effort="${MAX_TORQUE}" lower="-3.14" upper="3.14" velocity="${VELOCITY}"/>
+                        <origin xyz="0 -${UPPER_LEG} 0" rpy="0 0 0" />
                     </xacro:if>
                 </xacro:unless>
                 
@@ -170,13 +170,13 @@
                         <xacro:unless value="${is_right}">
                             <!-- LF UPPER_LEG -->
                         	<geometry>
-                        	    <mesh filename="package://starbot_description/meshes/stl/upper_leg.stl"/>
+                        	    <mesh filename="package://starbot_description/meshes/stl/upper_leg_y.stl"/>
                         	</geometry>
                         </xacro:unless>
                         <xacro:if value="${is_right}">
                             <!-- RF UPPER_LEG-->
                         	<geometry>
-                        	    <mesh filename="package://starbot_description/meshes/stl/upper_leg.001.stl"/>
+                        	    <mesh filename="package://starbot_description/meshes/stl/upper_leg_x.stl"/>
                         	</geometry>
                         </xacro:if>
                     </xacro:if>
@@ -184,13 +184,13 @@
                         <xacro:unless value="${is_right}">
                             <!-- LH UPPER_LEG -->
                         	<geometry>
-                        	    <mesh filename="package://starbot_description/meshes/stl/upper_leg.002.stl"/>
+                        	    <mesh filename="package://starbot_description/meshes/stl/upper_leg_nx.stl"/>
                         	</geometry>
                         </xacro:unless>
                         <xacro:if value="${is_right}">
                             <!-- RH UPPER_LEG -->
                         	<geometry>
-                        	    <mesh filename="package://starbot_description/meshes/stl/upper_leg.003.stl"/>
+                        	    <mesh filename="package://starbot_description/meshes/stl/upper_leg_ny.stl"/>
                         	</geometry>
                         </xacro:if>
                     </xacro:unless>
@@ -206,13 +206,13 @@
                         <xacro:unless value="${is_right}">
                             <!-- LF UPPER_LEG -->
                         	<geometry>
-                        	    <box size="0.30016 0.07002 0.0707"/>
+                        	    <box size="0.07002 0.30016 0.0707"/>
                         	</geometry>
                         </xacro:unless>
                         <xacro:if value="${is_right}">
                             <!-- RF UPPER_LEG -->
                         	<geometry>
-                        	    <box size="0.07002 0.30016 0.0707"/>
+                        	    <box size="0.30016 0.07002 0.0707"/>
                         	</geometry>
                         </xacro:if>
                     </xacro:if>
@@ -220,13 +220,13 @@
                         <xacro:unless value="${is_right}">
                             <!-- LH UPPER_LEG -->
                         	<geometry>
-                        	    <box size="0.07002 0.30016 0.0707"/>
+                        	    <box size="0.30016 0.07002 0.0707"/>
                         	</geometry>
                         </xacro:unless>
                         <xacro:if value="${is_right}">
                             <!-- RH UPPER_LEG-->
                         	<geometry>
-                        	    <box size="0.30016 0.07002 0.0707"/>
+                        	    <box size="0.07002 0.30016 0.0707"/>
                         	</geometry>
                         </xacro:if>
                     </xacro:unless>
@@ -241,7 +241,7 @@
                 <inertial>
                      <origin xyz="0 0 0" rpy="0 0 0"/>
                     <mass value="2.3"/>
-                    <inertia ixx="0.00148" ixy="0" ixz="0" iyy="0.01286" iyz="0" izz="0.01286"/>
+                     <inertia ixx="0.01259" ixy="0" ixz="0" iyy="0.00147" iyz="0" izz="0.01259"/>
                 </inertial>
             	</xacro:unless>
             	<xacro:if value="${is_right}">
@@ -249,7 +249,7 @@
                 <inertial>
                      <origin xyz="0 0 0" rpy="0 0 0"/>
                     <mass value="2.3"/>
-                    <inertia ixx="0.01259" ixy="0" ixz="0" iyy="0.00147" iyz="0" izz="0.01259"/>
+                    <inertia ixx="0.00147" ixy="0" ixz="0" iyy="0.01259" iyz="0" izz="0.01259"/>
                 </inertial>
             	</xacro:if>
             
@@ -263,36 +263,36 @@
                 <child link="${name}_lowerleg"/>
                 <xacro:insert_block name="origin"/>
                 
-                <!-- joints rotates around the x-axis -->
+                <!-- joints rotates around the x-axis (refer to the x-axis align leg) -->
                 
                 
                 <!-- limit and placement of the joint -->
                 <xacro:if value="${is_front}">
                     <xacro:unless value="${is_right}">
                         <!-- LF_LOWER_LEG_JOINT -->
-                        <axis xyz="1 0 0"/>
+                        <axis xyz="0 1 0"/>
                         <limit effort="${MAX_TORQUE}" lower="-3.14" upper="3.14" velocity="${VELOCITY}"/>
-                        <origin xyz="${LOWER_LEG_x} -${LOWER_LEG_y} -${LOWER_LEG_z}" rpy="0 0 0" />
+                        <origin xyz="${LOWER_LEG_y} ${LOWER_LEG_x} -${LOWER_LEG_z}" rpy="0 0 0" />
                     </xacro:unless>
                     <xacro:if value="${is_right}">
-                    	<axis xyz="0 1 0"/>
+                    	<axis xyz="1 0 0"/>
                         <!-- RF_LOWER_LEG_JOINT -->
 			<limit effort="${MAX_TORQUE}" lower="-3.14" upper="3.14" velocity="${VELOCITY}"/>
-                        <origin xyz="${LOWER_LEG_y} ${LOWER_LEG_x} -${LOWER_LEG_z}" rpy="0 0 0" />
+                        <origin xyz="${LOWER_LEG_x} -${LOWER_LEG_y} -${LOWER_LEG_z}" rpy="0 0 0" />
                     </xacro:if>
                 </xacro:if>
                 <xacro:unless value="${is_front}">
                     <xacro:unless value="${is_right}">
-                    	<axis xyz="0 -1 0"/>
+                    	<axis xyz="-1 0 0"/>
                         <!-- LH_LOWER_LEG_JOINT -->
 			<limit effort="${MAX_TORQUE}" lower="-3.14" upper="3.14" velocity="${VELOCITY}"/>
-                        <origin xyz="${LOWER_LEG_y} -${LOWER_LEG_x} -${LOWER_LEG_z}" rpy="0 0 0" />
+                        <origin xyz="$-{LOWER_LEG_x} -${LOWER_LEG_y} -${LOWER_LEG_z}" rpy="0 0 0" />
                     </xacro:unless>
                     <xacro:if value="${is_right}">
                         <!-- RF_LOWER_LEG_JOINT -->
-                        <axis xyz="-1 0 0"/>
+                        <axis xyz="0 -1 0"/>
 			<limit effort="${MAX_TORQUE}" lower="-3.14" upper="3.14" velocity="${VELOCITY}"/>
-                        <origin xyz="-${LOWER_LEG_x} -${LOWER_LEG_y} -${LOWER_LEG_z}" rpy="0 0 0" />
+                        <origin xyz="${LOWER_LEG_y} -${LOWER_LEG_x} -${LOWER_LEG_z}" rpy="0 0 0" />
                     </xacro:if>
                 </xacro:unless>
                 
@@ -310,13 +310,13 @@
                             <!-- LF LOWER_LEG -->
                             <!--we need mesh geometry otherwise strange behaviour happens-->
                         	<geometry>
-                        	    <mesh filename="package://starbot_description/meshes/stl/upper_leg.stl" scale="0.7 0.7 0.7"/>
+                        	    <mesh filename="package://starbot_description/meshes/stl/upper_leg_y.stl"/>
                         	</geometry>
                         </xacro:unless>
                         <xacro:if value="${is_right}">
                             <!-- RF LOWER_LEG-->
                         	<geometry>
-                        	    <mesh filename="package://starbot_description/meshes/stl/upper_leg.001.stl" scale="0.7 0.7 0.7"/>
+                        	    <cylinder radius="0.02029" length="0.4002"/>
                         	</geometry>
                         </xacro:if>
                     </xacro:if>
@@ -324,13 +324,13 @@
                         <xacro:unless value="${is_right}">
                             <!-- LH LOWER_LEG -->
                         	<geometry>
-                        	    <mesh filename="package://starbot_description/meshes/stl/upper_leg.002.stl" scale="0.7 0.7 0.7"/>
+                        	    <cylinder radius="0.02029" length="0.4002"/>
                         	</geometry>
                         </xacro:unless>
                         <xacro:if value="${is_right}">
                             <!-- RH LOWER_LEG -->
                         	<geometry>
-                        	    <mesh filename="package://starbot_description/meshes/stl/upper_leg.003.stl" scale="0.7 0.7 0.7"/>
+                        	    <cylinder radius="0.02029" length="0.4002"/>
                         	</geometry>
                         </xacro:if>
                     </xacro:unless>
@@ -346,13 +346,13 @@
                         <xacro:unless value="${is_right}">
                             <!-- LF LOWER_LEG -->
                         	<geometry>
-                        	    <box size="0.25009 0.04058 0.04002"/>
+                        	    <box size="0.04058 0.25009 0.04002"/>
                         	</geometry>
                         </xacro:unless>
                         <xacro:if value="${is_right}">
                             <!-- RF LOWER_LEG -->
                         	<geometry>
-                        	    <box size="0.04058 0.25009 0.04002"/>
+                        	    <box size="0.25009 0.04058 0.04002"/>
                         	</geometry>
                         </xacro:if>
                     </xacro:if>
@@ -360,13 +360,13 @@
                         <xacro:unless value="${is_right}">
                             <!-- LH LOWER_LEG -->
                         	<geometry>
-                        	     <box size="0.04058 0.25009 0.04002"/>
+                        	     <box size="0.25009 0.04058 0.04002"/>
                         	</geometry>
                         </xacro:unless>
                         <xacro:if value="${is_right}">
                             <!-- RH LOWER_LEG-->
                         	<geometry>
-                        	    <box size="0.25009 0.04058 0.04002"/>
+                        	    <box size="0.04058 0.25009 0.04002"/>
                         	</geometry>
                         </xacro:if>
                     </xacro:unless>
@@ -377,19 +377,19 @@
 	    
 	            <!-- LOWER LEG LINK INERTIAL -->
             	<xacro:unless value="${is_right}">
-                <!-- Left upper leg inertia -->
+                <!-- Left lower leg inertia -->
                 <inertial>
                     <origin xyz="0 0 0" rpy="0 0 0"/>
         	    <mass value="2.36"/>
-        	    <inertia ixx="0.00954" ixy="0" ixz="0" iyy="0.00954" iyz="0" izz="0.01845"/>
+        	    <inertia ixx="0.00056" ixy="0" ixz="0" iyy="0.00056" iyz="0" izz="0.00049"/>
                 </inertial>
             	</xacro:unless>
             	<xacro:if value="${is_right}">
-            	<!-- Right upper leg inertia -->
+            	<!-- Right lower leg inertia -->
                 <inertial>
                      <origin xyz="0 0 0" rpy="0 0 0"/>
         	     <mass value="2.36"/>
-        	     <inertia ixx="0.00056" ixy="0" ixz="0" iyy="0.00056" iyz="0" izz="0.00049"/>
+        	     <inertia ixx="0.00954" ixy="0" ixz="0" iyy="0.00954" iyz="0" izz="0.01845"/>
                 </inertial>
             	</xacro:if>
             
