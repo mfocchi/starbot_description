@@ -15,6 +15,10 @@
                  <gazebo reference="${name}_lower_leg_joint">
                         <provideFeedback>true</provideFeedback>
                  </gazebo>
+
+                <gazebo reference="${name}_pre_wheel_joint">
+                        <provideFeedback>true</provideFeedback>
+                </gazebo>
 			
 		 <!-- HERE WE HAVE FOOT SENSOR AND FRICTION PROPERTIES -->
                  <gazebo reference="${name}_foot">

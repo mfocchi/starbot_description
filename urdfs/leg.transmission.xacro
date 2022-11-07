@@ -39,6 +39,18 @@
                                 <mechanicalReduction>1</mechanicalReduction>
                         </actuator>
                 </transmission>
+
+        <!-- Pre wheel -->
+                <transmission name="${name}_pre_wheel_joint_trans">
+                        <type>transmission_interface/SimpleTransmission</type>
+                        <joint name="${name}_pre_wheel_joint">
+                                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+                        </joint>
+                        <actuator name="${name}_pre_wheel_joint_motor">
+                                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+                                <mechanicalReduction>1</mechanicalReduction>
+                        </actuator>
+                </transmission>
       
       
          
