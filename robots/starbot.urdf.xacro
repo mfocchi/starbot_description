@@ -90,7 +90,6 @@
     	is_front="true"
     	is_right="false"
     	robot_name="$(arg robot_name)">
-    	<origin xyz="-0.00035 0.14142 2e-05" rpy="0 0 0"/>
     </xacro:leg>
 
     <!-- RIGHT FRONT LEG = leg align with axis x -->
@@ -100,7 +99,6 @@
     	is_front="true"
     	is_right="true"
     	robot_name="$(arg robot_name)">
-    	<origin xyz="0.14142 0.00035 2e-05" rpy="0 0 0"/>
     </xacro:leg>
 
     <!-- LEFT HIND LEG = leg align with axis neg x -->
@@ -110,7 +108,6 @@
     	is_front="false"
     	is_right="false"
     	robot_name="$(arg robot_name)">
-    	<origin xyz="-0.14142 0.00035 2e-05" rpy="0 0 0"/>
     </xacro:leg>
 
     <!-- RIGHT HIND LEG = leg align with axis neg y -->
@@ -120,7 +117,6 @@
     	is_front="false"
     	is_right="true"
     	robot_name="$(arg robot_name)">
-    	<origin xyz="-0.00035 -0.14142 2e-05" rpy="0 0 0"/>
     </xacro:leg>
 
 
