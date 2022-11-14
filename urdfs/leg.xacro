@@ -16,6 +16,18 @@
     <xacro:property name="LOWER_LEG_pos" value="0.02546" />
     <xacro:property name="PRE_WHEEL_pos" value="0.16173" />
     <xacro:property name="WHEEL_pos" value="0.10183" />
+    
+    <material name="orange">
+     <color rgba="0.800 0.331 0.183 1.0"/>
+    </material>
+    
+    <material name="blue">
+     <color rgba="0.051 0.144 0.800 1.0"/>
+    </material>
+    
+    <material name="gray">
+     <color rgba="0.638 0.779 0.819 1.0"/>
+    </material>
 
 
     <!-- This macro has for purpose to define a leg -->
@@ -95,9 +107,7 @@
                         </geometry>
                     </xacro:if>
                 </xacro:unless>
-                <material name="shoulder_color">
-                    <color rgba="0.8 0.8 0.8 1.0"/>
-                </material>
+                <material name="orange"/>
             </visual>
 
             <!--COLLISION-->
@@ -131,9 +141,6 @@
                         </geometry>
                     </xacro:if>
                 </xacro:unless>
-                <material name="collision_color">
-                    <color rgba="0.8 0.8 0.8 1.0"/>
-                </material>
             </collision>
 
             <!--INERTIAL -->
@@ -220,9 +227,7 @@
                         </geometry>
                     </xacro:if>
                 </xacro:unless>
-                <material name="upper_leg_color">
-                <color rgba="0.8 0.8 0.8 1.0"/>
-                </material>
+                <material name="orange"/>
             </visual>
 
             <!--COLLISION-->
@@ -256,28 +261,45 @@
                         </geometry>
                     </xacro:if>
                 </xacro:unless>
-                <material name="collision_color">
-                    <color rgba="0.8 0.8 0.8 1.0"/>
-                </material>
             </collision>
 
             <!-- UPPER LEG LINK INERTIAL -->
-            <xacro:unless value="${is_right}">
-                <!-- Left upper leg inertia -->
-                <inertial>
-                    <origin xyz="0 0 0" rpy="0 0 0"/>
-                    <mass value="2.3"/>
-                    <inertia ixx="0.01259" ixy="0" ixz="0" iyy="0.00147" iyz="0" izz="0.01259"/>
-                </inertial>
-            </xacro:unless>
-            <xacro:if value="${is_right}">
-                <!-- Right upper leg inertia -->
-                <inertial>
-                    <origin xyz="0 0 0" rpy="0 0 0"/>
-                    <mass value="2.3"/>
-                    <inertia ixx="0.00147" ixy="0" ixz="0" iyy="0.01259" iyz="0" izz="0.01259"/>
-                </inertial>
-            </xacro:if>
+            <xacro:if value="${is_front}">
+                    <xacro:unless value="${is_right}">
+                        <!-- LF UPPER_LEG -->
+                        <inertial>
+                    		<origin xyz="0 0 0" rpy="0 0 0"/>
+                    		<mass value="2.3"/>
+                    		<inertia ixx="0.01246" ixy="0" ixz="0" iyy="0.00148" iyz="0" izz="0.01246"/>
+                	</inertial>
+                    </xacro:unless>
+                    <xacro:if value="${is_right}">
+                        <!-- RF UPPER_LEG -->
+                        <inertial>
+                    		<origin xyz="0 0 0" rpy="0 0 0"/>
+                    		<mass value="2.3"/>
+                    		<inertia ixx="0.00148" ixy="0" ixz="0" iyy="0.01246" iyz="0" izz="0.00148"/>
+                	</inertial>
+                    </xacro:if>
+                </xacro:if>
+                <xacro:unless value="${is_front}">
+                    <xacro:unless value="${is_right}">
+                        <!-- LH UPPER_LEG -->
+                        <inertial>
+                    		<origin xyz="0 0 0" rpy="0 0 0"/>
+                    		<mass value="2.3"/>
+                    		<inertia ixx="0.00148" ixy="0" ixz="0" iyy="0.01246" iyz="0" izz="0.00148"/>
+                	</inertial>
+                    </xacro:unless>
+                    <xacro:if value="${is_right}">
+                        <!-- RH UPPER_LEG-->
+                        <inertial>
+                    		<origin xyz="0 0 0" rpy="0 0 0"/>
+                    		<mass value="2.3"/>
+                    		<inertia ixx="0.01246" ixy="0" ixz="0" iyy="0.00148" iyz="0" izz="0.01246"/>
+                	</inertial>
+                    </xacro:if>
+                </xacro:unless>
 
         </link>
 
@@ -358,9 +380,7 @@
                         </geometry>
                     </xacro:if>
                 </xacro:unless>
-                <material name="upper_leg_color">
-                    <color rgba="0.3 0.3 0.6 1.0"/>
-                </material>
+                <material name="orange"/>
             </visual>
 
             <!--COLLISION-->
@@ -394,28 +414,45 @@
                         </geometry>
                     </xacro:if>
                 </xacro:unless>
-                <material name="collision_color">
-                    <color rgba="0.8 0.8 0.8 1.0"/>
-                </material>
             </collision>
 
             <!-- LOWER LEG LINK INERTIAL -->
-            <xacro:unless value="${is_right}">
-                <!-- Left lower leg inertia -->
-                <inertial>
-                    <origin xyz="0 0 0" rpy="0 0 0"/>
-                    <mass value="2.36"/>
-                    <inertia ixx="0.00056" ixy="0" ixz="0" iyy="0.00056" iyz="0" izz="0.00049"/>
-                </inertial>
-            </xacro:unless>
-            <xacro:if value="${is_right}">
-                <!-- Right lower leg inertia -->
-                <inertial>
-                    <origin xyz="0 0 0" rpy="0 0 0"/>
-                    <mass value="2.36"/>
-                    <inertia ixx="0.00954" ixy="0" ixz="0" iyy="0.00954" iyz="0" izz="0.01845"/>
-                </inertial>
-            </xacro:if>
+            <xacro:if value="${is_front}">
+                    <xacro:unless value="${is_right}">
+                        <!-- LF LOWER_LEG -->
+                        <inertial>
+                    		<origin xyz="0 0 0" rpy="0 0 0"/>
+                    		<mass value="2.36"/>
+                    		<inertia ixx="0.00767" ixy="0" ixz="0" iyy="0.00056" iyz="0" izz="0.00767"/>
+                	</inertial>
+                    </xacro:unless>
+                    <xacro:if value="${is_right}">
+                        <!-- RF LOWER_LEG -->
+                        <inertial>
+                    		<origin xyz="0 0 0" rpy="0 0 0"/>
+                    		<mass value="2.36"/>
+                    		<inertia ixx="0.00056" ixy="0" ixz="0" iyy="0.00767" iyz="0" izz="0.00056"/>
+                	</inertial>
+                    </xacro:if>
+                </xacro:if>
+                <xacro:unless value="${is_front}">
+                    <xacro:unless value="${is_right}">
+                        <!-- LH LOWER_LEG -->
+                        <inertial>
+                    		<origin xyz="0 0 0" rpy="0 0 0"/>
+                    		<mass value="2.36"/>
+                    		<inertia ixx="0.00056" ixy="0" ixz="0" iyy="0.00767" iyz="0" izz="0.00056"/>
+                	</inertial>
+                    </xacro:unless>
+                    <xacro:if value="${is_right}">
+                        <!-- RH LOWER_LEG-->
+                        <inertial>
+                    		<origin xyz="0 0 0" rpy="0 0 0"/>
+                    		<mass value="2.36"/>
+                    		<inertia ixx="0.00767" ixy="0" ixz="0" iyy="0.00056" iyz="0" izz="0.00767"/>
+                	</inertial>
+                    </xacro:if>
+                </xacro:unless>
 
         </link>
 
@@ -496,9 +533,7 @@
                         </geometry>
                     </xacro:if>
                 </xacro:unless>
-                <material name="upper_leg_color">
-                    <color rgba="0.3 0.3 0.6 1.0"/>
-                </material>
+                <material name="gray"/>
             </visual>
 
             <!--COLLISION-->
@@ -532,28 +567,45 @@
                         </geometry>
                     </xacro:if>
                 </xacro:unless>
-                <material name="collision_color">
-                    <color rgba="0.8 0.8 0.8 1.0"/>
-                </material>
             </collision>
 
             <!-- PRE WHEEL LINK INERTIAL -->
-            <xacro:unless value="${is_right}">
-                <!-- Left pre_wheel inertia -->
-                <inertial>
-                    <origin xyz="0 0 0" rpy="0 0 0"/>
-                    <mass value="0.66"/>
-                    <inertia ixx="0.00015" ixy="0" ixz="0" iyy="0.00015" iyz="0" izz="0.00013"/>
-                </inertial>
-            </xacro:unless>
-            <xacro:if value="${is_right}">
-                <!-- Right pre_wheel inertia -->
-                <inertial>
-                    <origin xyz="0 0 0" rpy="0 0 0"/>
-                    <mass value="0.66"/>
-                    <inertia ixx="0.00029" ixy="0" ixz="0" iyy="0.00029" iyz="0" izz="0.00041"/>
-                </inertial>
-            </xacro:if>
+            <xacro:if value="${is_front}">
+                    <xacro:unless value="${is_right}">
+                        <!-- PRE_WHEEL_LEG -->
+                        <inertial>
+                    		<origin xyz="0 0 0" rpy="0 0 0"/>
+                    		<mass value="0.66"/>
+                    		<inertia ixx="0.00024" ixy="0" ixz="0" iyy="0.00016" iyz="0" izz="0.00024"/>
+                	</inertial>
+                    </xacro:unless>
+                    <xacro:if value="${is_right}">
+                        <!-- PRE_WHEEL_LEG -->
+                        <inertial>
+                    		<origin xyz="0 0 0" rpy="0 0 0"/>
+                    		<mass value="0.66"/>
+                    		<inertia ixx="0.00016" ixy="0" ixz="0" iyy="0.00024" iyz="0" izz="0.00016"/>
+                	</inertial>
+                    </xacro:if>
+                </xacro:if>
+                <xacro:unless value="${is_front}">
+                    <xacro:unless value="${is_right}">
+                        <!-- PRE_WHEEL_LEG -->
+                        <inertial>
+                    		<origin xyz="0 0 0" rpy="0 0 0"/>
+                    		<mass value="0.66"/>
+                    		<inertia ixx="0.00016" ixy="0" ixz="0" iyy="0.00024" iyz="0" izz="0.00016"/>
+                	</inertial>
+                    </xacro:unless>
+                    <xacro:if value="${is_right}">
+                        <!-- PRE_WHEEL_LEG-->
+                        <inertial>
+                    		<origin xyz="0 0 0" rpy="0 0 0"/>
+                    		<mass value="0.66"/>
+                    		<inertia ixx="0.00024" ixy="0" ixz="0" iyy="0.00016" iyz="0" izz="0.00024"/>
+                	</inertial>
+                    </xacro:if>
+                </xacro:unless>
 
         </link>
 
@@ -630,9 +682,7 @@
                         </geometry>
                     </xacro:if>
                 </xacro:unless>
-                <material name="upper_leg_color">
-                    <color rgba="0.3 0.3 0.6 1.0"/>
-                </material>
+                <material name="blue"/>
             </visual>
 
             <!--COLLISION-->
@@ -666,28 +716,45 @@
                         </geometry>
                     </xacro:if>
                 </xacro:unless>
-                <material name="collision_color">
-                    <color rgba="0.8 0.8 0.8 1.0"/>
-                </material>
             </collision>
 
             <!-- WHEEL LINK INERTIAL -->
-            <xacro:unless value="${is_right}">
-                <!-- Left pre_wheel inertia -->
-                <inertial>
-                    <origin xyz="0 0 0" rpy="0 0 0"/>
-                    <mass value="1.0"/>
-                    <inertia ixx="0.00224" ixy="0" ixz="0" iyy="0.00121" iyz="0" izz="0.00121"/>
-                </inertial>
-            </xacro:unless>
-            <xacro:if value="${is_right}">
-                <!-- Right pre_wheel inertia -->
-                <inertial>
-                    <origin xyz="0 0 0" rpy="0 0 0"/>
-                    <mass value="1.0"/>
-                    <inertia ixx="0.00121" ixy="0" ixz="0" iyy="0.00224" iyz="0" izz="0.00121"/>
-                </inertial>
-            </xacro:if>
+            <xacro:if value="${is_front}">
+                    <xacro:unless value="${is_right}">
+                        <!-- PRE_WHEEL_LEG -->
+                        <inertial>
+                    		<origin xyz="0 0 0" rpy="0 0 0"/>
+                    		<mass value="1.0"/>
+                    		<inertia ixx="0.00224" ixy="0" ixz="0" iyy="0.00121" iyz="0" izz="0.00224"/>
+                	</inertial>
+                    </xacro:unless>
+                    <xacro:if value="${is_right}">
+                        <!-- PRE_WHEEL_LEG -->
+                        <inertial>
+                    		<origin xyz="0 0 0" rpy="0 0 0"/>
+                    		<mass value="1.0"/>
+                    		<inertia ixx="0.00121" ixy="0" ixz="0" iyy="0.00224" iyz="0" izz="0.00121"/>
+                	</inertial>
+                    </xacro:if>
+                </xacro:if>
+                <xacro:unless value="${is_front}">
+                    <xacro:unless value="${is_right}">
+                        <!-- PRE_WHEEL_LEG -->
+                        <inertial>
+                    		<origin xyz="0 0 0" rpy="0 0 0"/>
+                    		<mass value="1.0"/>
+                    		<inertia ixx="0.00121" ixy="0" ixz="0" iyy="0.00224" iyz="0" izz="0.00121"/>
+                	</inertial>
+                    </xacro:unless>
+                    <xacro:if value="${is_right}">
+                        <!-- PRE_WHEEL_LEG-->
+                        <inertial>
+                    		<origin xyz="0 0 0" rpy="0 0 0"/>
+                    		<mass value="1.0"/>
+                    		<inertia ixx="0.00224" ixy="0" ixz="0" iyy="0.00121" iyz="0" izz="0.00224"/>
+                	</inertial>
+                    </xacro:if>
+                </xacro:unless>
 
         </link>
 
