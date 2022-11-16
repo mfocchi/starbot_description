@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <robot name="starbot" xmlns:xacro="http://ros.org/wiki/xacro">
-	<xacro:arg name="new_gazebo_version" default="false"/>
+	<xacro:arg name="new_gazebo_version" default="true"/>
     <!-- left front leg -->
     <group name="lf_leg">
         <joint name="lf_bs_joint" />
