@@ -39,7 +39,7 @@
     <link name="trunk">
         <inertial>
         <origin xyz="0 0 0" rpy="0 0 0"/>
-        <mass value="20.0"/>
+        <mass value="10.0"/>
         <inertia ixx="0.16574" ixy="0" ixz="0" iyy="0.16574" iyz="0" izz="0.24057"/>
       </inertial>
       <visual>
@@ -51,12 +51,8 @@
         	<color rgba="0.8 0.6 0.0 1.0"/>
         </material>
       </visual>
-      <collision>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry>
-          <box size="0.27816 0.27816 0.2"/>
-        </geometry>
-      </collision>
+     
+
     </link>
 
     <!-- if we imagine to place a line between the two positive direction of axis x and y -->
@@ -86,7 +82,7 @@
     <!-- LEFT FRONT LEG = leg align with axis y -->
      <xacro:leg
     	name="lf"
-    	parent="base_link"
+    	parent="trunk"
     	is_front="true"
     	is_right="false"
     	robot_name="$(arg robot_name)">
@@ -95,7 +91,7 @@
     <!-- RIGHT FRONT LEG = leg align with axis x -->
     <xacro:leg
     	name="rf"
-    	parent="base_link"
+    	parent="trunk"
     	is_front="true"
     	is_right="true"
     	robot_name="$(arg robot_name)">
@@ -104,7 +100,7 @@
     <!-- LEFT HIND LEG = leg align with axis neg x -->
      <xacro:leg
     	name="lh"
-    	parent="base_link"
+    	parent="trunk"
     	is_front="false"
     	is_right="false"
     	robot_name="$(arg robot_name)">
@@ -113,7 +109,7 @@
     <!-- RIGHT HIND LEG = leg align with axis neg y -->
     <xacro:leg
     	name="rh"
-    	parent="base_link"
+    	parent="trunk"
     	is_front="false"
     	is_right="true"
     	robot_name="$(arg robot_name)">
