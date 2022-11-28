@@ -9,7 +9,8 @@
 
     <!-- These are absoulte distance value, the sign are decided below -->
 
-    <xacro:property name="MAX_TORQUE" value="0" />
+    <xacro:property name="MAX_TORQUE" value="300" />
+    <xacro:property name="MAX_FORCE_LOWERLEG" value="10000" />
     <xacro:property name="SHOULDER" value="0.14142" />
     <xacro:property name="VELOCITY" value="0" />
     <xacro:property name="UPPER_LEG" value="0.15312" />
@@ -321,13 +322,13 @@
                 <xacro:unless value="${is_right}">
                     <!-- LF_LOWER_LEG_JOINT -->
                     <axis xyz="0 1 0"/>
-                    <limit effort="${MAX_TORQUE}" lower="0.02" upper="0.20" velocity="${VELOCITY}"/>
+                    <limit effort="${MAX_FORCE_LOWERLEG}" lower="0.02" upper="0.20" velocity="${VELOCITY}"/>
                     <origin xyz="0 ${LOWER_LEG_pos} 0" rpy="0 0 0" />
                 </xacro:unless>
                 <xacro:if value="${is_right}">
                     <axis xyz="1 0 0"/>
                     <!-- RF_LOWER_LEG_JOINT -->
-                    <limit effort="${MAX_TORQUE}" lower="0.02" upper="0.20" velocity="${VELOCITY}"/>
+                    <limit effort="${MAX_FORCE_LOWERLEG}" lower="0.02" upper="0.20" velocity="${VELOCITY}"/>
                     <origin xyz="${LOWER_LEG_pos} 0 0" rpy="0 0 0" />
                 </xacro:if>
             </xacro:if>
@@ -335,13 +336,13 @@
                 <xacro:unless value="${is_right}">
                     <axis xyz="-1 0 0"/>
                     <!-- LH_LOWER_LEG_JOINT -->
-                    <limit effort="${MAX_TORQUE}" lower="0.02" upper="0.20" velocity="${VELOCITY}"/>
+                    <limit effort="${MAX_FORCE_LOWERLEG}" lower="0.02" upper="0.20" velocity="${VELOCITY}"/>
                     <origin xyz="-${LOWER_LEG_pos} 0 0" rpy="0 0 0" />
                 </xacro:unless>
                 <xacro:if value="${is_right}">
                     <!-- RF_LOWER_LEG_JOINT -->
                     <axis xyz="0 -1 0"/>
-                    <limit effort="${MAX_TORQUE}" lower="0.02" upper="0.20" velocity="${VELOCITY}"/>
+                    <limit effort="${MAX_FORCE_LOWERLEG}" lower="0.02" upper="0.20" velocity="${VELOCITY}"/>
                     <origin xyz="0 -${LOWER_LEG_pos} 0" rpy="0 0 0" />
                 </xacro:if>
             </xacro:unless>
