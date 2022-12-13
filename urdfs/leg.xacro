@@ -304,13 +304,13 @@
                     <!-- LF_LOWER_LEG_JOINT -->
                     <axis xyz="0 1 0"/>
                     <limit effort="${MAX_FORCE_LOWERLEG}" lower="${LOWER_LIMIT_PRI}" upper="${UPPER_LIMIT_PRI}" velocity="${VELOCITY}"/>
-                    <origin xyz="0 0 0" rpy="0 0 0" />
+                    <origin xyz="0 ${LOWER_LEG_JOINT_pos} 0" rpy="0 0 0" />
                 </xacro:unless>
                 <xacro:if value="${is_right}">
                     <axis xyz="1 0 0"/>
                     <!-- RF_LOWER_LEG_JOINT -->
                     <limit effort="${MAX_FORCE_LOWERLEG}" lower="${LOWER_LIMIT_PRI}" upper="${UPPER_LIMIT_PRI}" velocity="${VELOCITY}"/>
-                    <origin xyz="0 0 0" rpy="0 0 0" />
+                    <origin xyz="${LOWER_LEG_JOINT_pos} 0 0" rpy="0 0 0" />
                 </xacro:if>
             </xacro:if>
             <xacro:unless value="${is_front}">
@@ -318,13 +318,13 @@
                     <axis xyz="-1 0 0"/>
                     <!-- LH_LOWER_LEG_JOINT -->
                     <limit effort="${MAX_FORCE_LOWERLEG}" lower="${LOWER_LIMIT_PRI}" upper="${UPPER_LIMIT_PRI}" velocity="${VELOCITY}"/>
-                    <origin xyz="0 0 0" rpy="0 0 0" />
+                    <origin xyz="-${LOWER_LEG_JOINT_pos} 0 0" rpy="0 0 0" />
                 </xacro:unless>
                 <xacro:if value="${is_right}">
                     <!-- RF_LOWER_LEG_JOINT -->
                     <axis xyz="0 -1 0"/>
                     <limit effort="${MAX_FORCE_LOWERLEG}" lower="${LOWER_LIMIT_PRI}" upper="${UPPER_LIMIT_PRI}" velocity="${VELOCITY}"/>
-                    <origin xyz="0 0 0" rpy="0 0 0" />
+                    <origin xyz="0 -${LOWER_LEG_JOINT_pos} 0" rpy="0 0 0" />
                 </xacro:if>
             </xacro:unless>
 
@@ -461,13 +461,13 @@
                 <xacro:unless value="${is_right}">
                     <!-- LF_PRE_WHEEL_JOINT -->
                     <axis xyz="0 1 0"/>
-                    <limit effort="${MAX_TORQUE_PRE_WHEEL}" lower="-${REV_LIMIT_PRE_WHEEL}" upper="${REV_LIMIT_PRE_WHEEL}" velocity="${VELOCITY}"/>
+                    <limit effort="${MAX_TORQUE_PRE_WHEEL}" lower="0" upper="${REV_LIMIT_PRE_WHEEL}" velocity="${VELOCITY}"/>
                     <origin xyz="0 ${PRE_WHEEL_pos} 0" rpy="0 0 0" />
                 </xacro:unless>
                 <xacro:if value="${is_right}">
                     <axis xyz="1 0 0"/>
                     <!-- RF_PRE_WHEEL_JOINT -->
-                    <limit effort="${MAX_TORQUE_PRE_WHEEL}" lower="-${REV_LIMIT_PRE_WHEEL}" upper="${REV_LIMIT_PRE_WHEEL}" velocity="${VELOCITY}"/>
+                    <limit effort="${MAX_TORQUE_PRE_WHEEL}" lower="0" upper="${REV_LIMIT_PRE_WHEEL}" velocity="${VELOCITY}"/>
                     <origin xyz="${PRE_WHEEL_pos} 0 0" rpy="0 0 0" />
                 </xacro:if>
             </xacro:if>
@@ -475,13 +475,13 @@
                 <xacro:unless value="${is_right}">
                     <axis xyz="-1 0  0"/>
                     <!-- LH_PRE_WHEEL_JOINT -->
-                    <limit effort="${MAX_TORQUE_PRE_WHEEL}" lower="-${REV_LIMIT_PRE_WHEEL}" upper="${REV_LIMIT_PRE_WHEEL}" velocity="${VELOCITY}"/>
+                    <limit effort="${MAX_TORQUE_PRE_WHEEL}" lower="0" upper="${REV_LIMIT_PRE_WHEEL}" velocity="${VELOCITY}"/>
                     <origin xyz="-${PRE_WHEEL_pos} 0 0" rpy="0 0 0" />
                 </xacro:unless>
                 <xacro:if value="${is_right}">
                     <!-- RF_PRE_WHEEL_JOINT -->
                     <axis xyz="0  -1 0"/>
-                    <limit effort="${MAX_TORQUE_PRE_WHEEL}" lower="-${REV_LIMIT_PRE_WHEEL}" upper="${REV_LIMIT_PRE_WHEEL}" velocity="${VELOCITY}"/>
+                    <limit effort="${MAX_TORQUE_PRE_WHEEL}" lower="0" upper="${REV_LIMIT_PRE_WHEEL}" velocity="${VELOCITY}"/>
                     <origin xyz="0 -${PRE_WHEEL_pos} 0" rpy="0 0 0" />
                 </xacro:if>
             </xacro:unless>
