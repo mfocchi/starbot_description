@@ -146,13 +146,13 @@
                     <!-- LF_UPPER_LEG_JOINT -->
                     <axis xyz="0 0 1"/>
                     <limit effort="${MAX_TORQUE_UPPER}" lower="-${REV_LIMIT}" upper="${REV_LIMIT}" velocity="${VELOCITY}"/>
-                    <origin xyz="0 ${UPPER_LEG_pos} 0" rpy="0 0 0" />
+                    <origin xyz="0 0 0" rpy="0 0 0" />
                 </xacro:unless>
                 <xacro:if value="${is_right}">
                     <!-- RF_UPPER_LEG_JOINT -->
                     <axis xyz="0 0 1"/>
                     <limit effort="${MAX_TORQUE_UPPER}" lower="-${REV_LIMIT}" upper="${REV_LIMIT}" velocity="${VELOCITY}"/>
-                    <origin xyz="${UPPER_LEG_pos} 0 0" rpy="0 0 0" />
+                    <origin xyz="0 0 0" rpy="0 0 0" />
                 </xacro:if>
             </xacro:if>
             <xacro:unless value="${is_front}">
@@ -160,13 +160,13 @@
                     <!-- LH_UPPER_LEG_JOINT -->
                     <axis xyz="0 0 1"/>
                     <limit effort="${MAX_TORQUE_UPPER}" lower="-${REV_LIMIT}" upper="${REV_LIMIT}" velocity="${VELOCITY}"/>
-                    <origin xyz="-${UPPER_LEG_pos} 0 0" rpy="0 0 0" />
+                    <origin xyz="0 0 0" rpy="0 0 0" />
                 </xacro:unless>
                 <xacro:if value="${is_right}">
                     <!-- RH_UPPER_LEG_JOINT -->
                     <axis xyz="0 0 1"/>
                     <limit effort="${MAX_TORQUE_UPPER}" lower="-${REV_LIMIT}" upper="${REV_LIMIT}" velocity="${VELOCITY}"/>
-                    <origin xyz="0 -${UPPER_LEG_pos} 0" rpy="0 0 0" />
+                    <origin xyz="0 0 0" rpy="0 0 0" />
                 </xacro:if>
             </xacro:unless>
 
@@ -178,16 +178,17 @@
         <link name="${name}_upperleg">
             <!--VISUAL-->
             <visual>
-                <origin xyz="0 0 0" rpy="0 0 0" />
                 <xacro:if value="${is_front}">
                     <xacro:unless value="${is_right}">
-			<!-- LF UPPER_LEG --> 
+			<!-- LF UPPER_LEG -->
+                        <origin xyz="0 ${UPPER_LEG_pos} 0" rpy="0 0 0" />
                         <geometry>
                             <mesh filename="package://starbot_description/meshes/stl/upper_leg_y.stl"/>
                         </geometry>
                     </xacro:unless>
                     <xacro:if value="${is_right}">
-			<!-- RF UPPER_LEG-->			
+			<!-- RF UPPER_LEG-->
+                        <origin xyz="${UPPER_LEG_pos} 0 0" rpy="0 0 0" />
                         <geometry>
                             <mesh filename="package://starbot_description/meshes/stl/upper_leg_x.stl"/>
                         </geometry>
@@ -196,12 +197,14 @@
                 <xacro:unless value="${is_front}">
                     <xacro:unless value="${is_right}">
 			<!-- LH UPPER_LEG -->
+                        <origin xyz="-${UPPER_LEG_pos} 0 0" rpy="0 0 0" />
                         <geometry>
                             <mesh filename="package://starbot_description/meshes/stl/upper_leg_nx.stl"/>
                         </geometry>
                     </xacro:unless>
                     <xacro:if value="${is_right}">
 		        <!-- RH UPPER_LEG -->
+                        <origin xyz="0 -${UPPER_LEG_pos} 0" rpy="0 0 0" />
                         <geometry>
                             <mesh filename="package://starbot_description/meshes/stl/upper_leg_ny.stl"/>
                         </geometry>
@@ -216,14 +219,14 @@
                 <xacro:if value="${is_front}">
                     <xacro:unless value="${is_right}">
                         <!-- LF UPPER_LEG -->
-			<origin xyz="0 0 0" rpy="0 0 0" />
+			            <origin xyz="0 ${UPPER_LEG_pos} 0" rpy="0 0 0" />
                         <geometry>
                             <mesh filename="package://starbot_description/meshes/stl/upper_leg_y.stl"/>
                         </geometry>
                     </xacro:unless>
                     <xacro:if value="${is_right}">
                         <!-- RF UPPER_LEG -->
-       			<origin xyz="0 0 0" rpy="0 0 0" />
+       			        <origin xyz="${UPPER_LEG_pos} 0 0" rpy="0 0 0" />
                         <geometry>
                             <mesh filename="package://starbot_description/meshes/stl/upper_leg_x.stl"/>
                         </geometry>
@@ -232,14 +235,14 @@
                 <xacro:unless value="${is_front}">
                     <xacro:unless value="${is_right}">
                         <!-- LH UPPER_LEG -->
-			<origin xyz="0 0  0" rpy="0 0 0" />
+			            <origin xyz="-${UPPER_LEG_pos} 0 0" rpy="0 0 0" />
                         <geometry>
                             <mesh filename="package://starbot_description/meshes/stl/upper_leg_nx.stl"/>
                         </geometry>
                     </xacro:unless>
                     <xacro:if value="${is_right}">
                         <!-- RH UPPER_LEG-->
-			<origin xyz=" 0 0 0" rpy="0 0 0" />
+			            <origin xyz=" 0 -${UPPER_LEG_pos} 0" rpy="0 0 0" />
                         
                         <geometry>
                             <mesh filename="package://starbot_description/meshes/stl/upper_leg_ny.stl"/>
@@ -301,13 +304,13 @@
                     <!-- LF_LOWER_LEG_JOINT -->
                     <axis xyz="0 1 0"/>
                     <limit effort="${MAX_FORCE_LOWERLEG}" lower="${LOWER_LIMIT_PRI}" upper="${UPPER_LIMIT_PRI}" velocity="${VELOCITY}"/>
-                    <origin xyz="0 ${LOWER_LEG_pos} 0" rpy="0 0 0" />
+                    <origin xyz="0 0 0" rpy="0 0 0" />
                 </xacro:unless>
                 <xacro:if value="${is_right}">
                     <axis xyz="1 0 0"/>
                     <!-- RF_LOWER_LEG_JOINT -->
                     <limit effort="${MAX_FORCE_LOWERLEG}" lower="${LOWER_LIMIT_PRI}" upper="${UPPER_LIMIT_PRI}" velocity="${VELOCITY}"/>
-                    <origin xyz="${LOWER_LEG_pos} 0 0" rpy="0 0 0" />
+                    <origin xyz="0 0 0" rpy="0 0 0" />
                 </xacro:if>
             </xacro:if>
             <xacro:unless value="${is_front}">
@@ -315,13 +318,13 @@
                     <axis xyz="-1 0 0"/>
                     <!-- LH_LOWER_LEG_JOINT -->
                     <limit effort="${MAX_FORCE_LOWERLEG}" lower="${LOWER_LIMIT_PRI}" upper="${UPPER_LIMIT_PRI}" velocity="${VELOCITY}"/>
-                    <origin xyz="-${LOWER_LEG_pos} 0 0" rpy="0 0 0" />
+                    <origin xyz="0 0 0" rpy="0 0 0" />
                 </xacro:unless>
                 <xacro:if value="${is_right}">
                     <!-- RF_LOWER_LEG_JOINT -->
                     <axis xyz="0 -1 0"/>
                     <limit effort="${MAX_FORCE_LOWERLEG}" lower="${LOWER_LIMIT_PRI}" upper="${UPPER_LIMIT_PRI}" velocity="${VELOCITY}"/>
-                    <origin xyz="0 -${LOWER_LEG_pos} 0" rpy="0 0 0" />
+                    <origin xyz="0 0 0" rpy="0 0 0" />
                 </xacro:if>
             </xacro:unless>
 
@@ -333,16 +336,17 @@
         <link name="${name}_lowerleg">
             <!--VISUAL-->
             <visual>
-		<origin xyz="0 0 0" rpy="0 0 0" />
                 <xacro:if value="${is_front}">
                     <xacro:unless value="${is_right}">
                         <!-- LF LOWER_LEG -->
+		                <origin xyz="0 ${LOWER_LEG_pos} 0" rpy="0 0 0" />
                         <geometry>
                             <mesh filename="package://starbot_description/meshes/stl/lower_leg_y.stl"/>
                         </geometry>
                     </xacro:unless>
                     <xacro:if value="${is_right}">
                         <!-- RF LOWER_LEG-->
+                        <origin xyz="${LOWER_LEG_pos} 0 0" rpy="0 0 0" />
                         <geometry>
                             <mesh filename="package://starbot_description/meshes/stl/lower_leg_x.stl"/>
                         </geometry>
@@ -351,12 +355,14 @@
                 <xacro:unless value="${is_front}">
                     <xacro:unless value="${is_right}">
                         <!-- LH LOWER_LEG -->
+                        <origin xyz="-${LOWER_LEG_pos} 0 0" rpy="0 0 0" />
                         <geometry>
                             <mesh filename="package://starbot_description/meshes/stl/lower_leg_nx.stl"/>
                         </geometry>
                     </xacro:unless>
                     <xacro:if value="${is_right}">
                         <!-- RH LOWER_LEG -->
+                        <origin xyz="0 -${LOWER_LEG_pos} 0" rpy="0 0 0" />
                         <geometry>
                             <mesh filename="package://starbot_description/meshes/stl/lower_leg_ny.stl"/>
                         </geometry>
@@ -367,16 +373,17 @@
 
             <!--COLLISION-->
             <collision>
-                <origin xyz="0 0 0" rpy="0 0 0" />
                 <xacro:if value="${is_front}">
                     <xacro:unless value="${is_right}">
                         <!-- LF LOWER_LEG -->
+                        <origin xyz="0 ${LOWER_LEG_pos} 0" rpy="0 0 0" />
                         <geometry>
                             <mesh filename="package://starbot_description/meshes/stl/lower_leg_y.stl"/>
                         </geometry>
                     </xacro:unless>
                     <xacro:if value="${is_right}">
                         <!-- RF LOWER_LEG -->
+                        <origin xyz="${LOWER_LEG_pos} 0 0" rpy="0 0 0" />
                         <geometry>
                             <mesh filename="package://starbot_description/meshes/stl/lower_leg_x.stl"/>
                         </geometry>
@@ -385,12 +392,14 @@
                 <xacro:unless value="${is_front}">
                     <xacro:unless value="${is_right}">
                         <!-- LH LOWER_LEG -->
+                        <origin xyz="-${LOWER_LEG_pos} 0 0" rpy="0 0 0" />
                         <geometry>
                             <mesh filename="package://starbot_description/meshes/stl/lower_leg_nx.stl"/>
                         </geometry>
                     </xacro:unless>
                     <xacro:if value="${is_right}">
                         <!-- RH LOWER_LEG-->
+                        <origin xyz="0 -${LOWER_LEG_pos} 0" rpy="0 0 0" />
                         <geometry>
                             <mesh filename="package://starbot_description/meshes/stl/lower_leg_ny.stl"/>
                         </geometry>
