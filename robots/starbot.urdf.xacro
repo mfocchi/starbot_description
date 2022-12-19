@@ -33,14 +33,12 @@
         <child link="trunk"/>
     </joint>
 
-
-
     
     <link name="trunk">
         <inertial>
         <origin xyz="0 0 0" rpy="0 0 0"/>
-        <mass value="10.0"/>
-        <inertia ixx="0.16574" ixy="0" ixz="0" iyy="0.16574" iyz="0" izz="0.24057"/>
+        <mass value="20.0"/>
+        <inertia ixx="0.1956" ixy="0" ixz="0" iyy="0.1956" iyz="0" izz="0.2579"/>
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>

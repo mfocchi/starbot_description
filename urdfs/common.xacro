@@ -11,17 +11,17 @@
     
     <!-- center of mass of each part besides shoulder (for inertia) -->
     
-    <xacro:property name="CM_XY_UPPER" value="0.076" />
-    <xacro:property name="CM_Z_UPPER" value="0.0" />
+    <xacro:property name="CM_XY_UPPER" value="${UPPER_LEG_pos/2}" />
+    <xacro:property name="CM_Z_UPPER" value="0" />
     
-    <xacro:property name="CM_XY_LOWER" value="0.113" />
-    <xacro:property name="CM_Z_LOWER" value="0.0" />
+    <xacro:property name="CM_XY_LOWER" value="${LOWER_LEG_pos + LOWER_LEG_joint_pos}" />
+    <xacro:property name="CM_Z_LOWER" value="0" />
     
-    <xacro:property name="CM_XY_PRE_WHEEL" value="0.081" />
-    <xacro:property name="CM_Z_PRE_WHEEL" value="0.0" />
+    <xacro:property name="CM_XY_PRE_WHEEL" value="0" />
+    <xacro:property name="CM_Z_PRE_WHEEL" value="0" />
     
-    <xacro:property name="CM_XY_WHEEL" value="0.051" />
-    <xacro:property name="CM_Z_WHEEL" value="0.0" />
+    <xacro:property name="CM_XY_WHEEL" value="0" />
+    <xacro:property name="CM_Z_WHEEL" value="0" />
     
 
     <!-- These are absolute distance value, the sign are decided in leg.xacro -->
@@ -43,15 +43,15 @@
     
     <!-- material colors -->
      <material name="orange">
-     <color rgba="0.800 0.331 0.183 1.0"/>
+     <color rgba="0.800 0.331 0.183 0.4"/>
     </material>
     
     <material name="blue">
-     <color rgba="0.051 0.144 0.800 1.0"/>
+     <color rgba="0.051 0.144 0.800 0.4"/>
     </material>
     
     <material name="gray">
-     <color rgba="0.638 0.779 0.819 1.0"/>
+     <color rgba="0.638 0.779 0.819 0.4"/>
     </material>
 
 
