@@ -43,15 +43,15 @@
     
     <!-- material colors -->
      <material name="orange">
-     <color rgba="0.800 0.331 0.183 0.4"/>
+     <color rgba="0.800 0.331 0.183 1"/>
     </material>
     
     <material name="blue">
-     <color rgba="0.051 0.144 0.800 0.4"/>
+     <color rgba="0.051 0.144 0.800 1"/>
     </material>
     
     <material name="gray">
-     <color rgba="0.638 0.779 0.819 0.4"/>
+     <color rgba="0.638 0.779 0.819 1"/>
     </material>
 
 
