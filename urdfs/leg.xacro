@@ -96,13 +96,13 @@
                     <xacro:unless value="${is_right}">
                         <!-- LF_BS -->
                         <geometry>
-                            <mesh filename="package://starbot_description/meshes/stl/shoulder_y.stl" scale = "0.8 0.8 0.8" />
+                            <mesh filename="package://starbot_description/meshes/stl/shoulder_y.stl" />
                         </geometry>
                     </xacro:unless>
                     <xacro:if value="${is_right}">
                         <!-- RF_BS -->
                         <geometry>
-                            <mesh filename="package://starbot_description/meshes/stl/shoulder_x.stl" scale = "0.8 0.8 0.8" />
+                            <mesh filename="package://starbot_description/meshes/stl/shoulder_x.stl"/>
                         </geometry>
                     </xacro:if>
                 </xacro:if>
@@ -110,13 +110,13 @@
                     <xacro:unless value="${is_right}">
                         <!-- LH_BS -->
                         <geometry>
-                            <mesh filename="package://starbot_description/meshes/stl/shoulder_nx.stl" scale = "0.8 0.8 0.8" />
+                            <mesh filename="package://starbot_description/meshes/stl/shoulder_nx.stl" />
                         </geometry>
                     </xacro:unless>
                     <xacro:if value="${is_right}">
                         <!-- RH_BS -->
                         <geometry>
-                            <mesh filename="package://starbot_description/meshes/stl/shoulder_ny.stl" scale = "0.8 0.8 0.8" />
+                            <mesh filename="package://starbot_description/meshes/stl/shoulder_ny.stl" />
                         </geometry>
                     </xacro:if>
                 </xacro:unless>
@@ -221,14 +221,14 @@
                         <!-- LF UPPER_LEG -->
 			<origin xyz="0 ${CM_XY_UPPER} ${CM_Z_UPPER}" rpy="0 0 0" />
                         <geometry>
-                            <mesh filename="package://starbot_description/meshes/stl/upper_leg_y.stl" scale = "0.8 0.8 0.8" />
+                            <mesh filename="package://starbot_description/meshes/stl/upper_leg_y.stl" />
                         </geometry>
                     </xacro:unless>
                     <xacro:if value="${is_right}">
                         <!-- RF UPPER_LEG -->
        			<origin xyz="${CM_XY_UPPER} 0 ${CM_Z_UPPER}" rpy="0 0 0" />
                         <geometry>
-                            <mesh filename="package://starbot_description/meshes/stl/upper_leg_x.stl" scale = "0.8 0.8 0.8" />
+                            <mesh filename="package://starbot_description/meshes/stl/upper_leg_x.stl" />
                         </geometry>
                     </xacro:if>
                 </xacro:if>
@@ -237,7 +237,7 @@
                         <!-- LH UPPER_LEG -->
 			<origin xyz="-${CM_XY_UPPER} 0 ${CM_Z_UPPER}" rpy="0 0 0" />
                         <geometry>
-                            <mesh filename="package://starbot_description/meshes/stl/upper_leg_nx.stl" scale = "0.8 0.8 0.8" />
+                            <mesh filename="package://starbot_description/meshes/stl/upper_leg_nx.stl"/>
                         </geometry>
                     </xacro:unless>
                     <xacro:if value="${is_right}">
@@ -245,7 +245,7 @@
 			<origin xyz="0 -${CM_XY_UPPER} ${CM_Z_UPPER}" rpy="0 0 0" />
 
                         <geometry>
-                            <mesh filename="package://starbot_description/meshes/stl/upper_leg_ny.stl" scale = "0.8 0.8 0.8" />
+                            <mesh filename="package://starbot_description/meshes/stl/upper_leg_ny.stl"  />
                         </geometry>
                     </xacro:if>
                 </xacro:unless>
@@ -380,14 +380,14 @@
                         <!-- LF LOWER_LEG -->
                          <origin xyz="0 ${LOWER_LEG_pos} 0" rpy="0 0 0" />
                         <geometry>
-                            <mesh filename="package://starbot_description/meshes/stl/lower_leg_y.stl" scale = "0.8 0.8 0.8"/>
+                            <mesh filename="package://starbot_description/meshes/stl/lower_leg_y.stl" />
                         </geometry>
                     </xacro:unless>
                     <xacro:if value="${is_right}">
                         <!-- RF LOWER_LEG -->
                         <origin xyz="${LOWER_LEG_pos} 0 0" rpy="0 0 0" />
                         <geometry>
-                            <mesh filename="package://starbot_description/meshes/stl/lower_leg_x.stl" scale = "0.8 0.8 0.8" />
+                            <mesh filename="package://starbot_description/meshes/stl/lower_leg_x.stl"/>
                         </geometry>
                     </xacro:if>
                 </xacro:if>
@@ -396,14 +396,14 @@
                         <!-- LH LOWER_LEG -->
                         <origin xyz="-${LOWER_LEG_pos} 0 0" rpy="0 0 0" />
                         <geometry>
-                            <mesh filename="package://starbot_description/meshes/stl/lower_leg_nx.stl" scale = "0.8 0.8 0.8"/>
+                            <mesh filename="package://starbot_description/meshes/stl/lower_leg_nx.stl" />
                         </geometry>
                     </xacro:unless>
                     <xacro:if value="${is_right}">
                         <!-- RH LOWER_LEG-->
                          <origin xyz="0 -${LOWER_LEG_pos} 0" rpy="0 0 0" />
                         <geometry>
-                            <mesh filename="package://starbot_description/meshes/stl/lower_leg_ny.stl" scale = "0.8 0.8 0.8"/>
+                            <mesh filename="package://starbot_description/meshes/stl/lower_leg_ny.stl"/>
                         </geometry>
                     </xacro:if>
                 </xacro:unless>
@@ -536,13 +536,13 @@
                     <xacro:unless value="${is_right}">
                         <!-- LF PRE_WHEEL -->
                         <geometry>
-                            <mesh filename="package://starbot_description/meshes/stl/joint_wheel_y.stl" scale = "0.8 0.8 0.8"/>
+                            <mesh filename="package://starbot_description/meshes/stl/joint_wheel_y.stl"/>
                         </geometry>
                     </xacro:unless>
                     <xacro:if value="${is_right}">
                         <!-- RF PRE_WHEEL -->
                         <geometry>
-                            <mesh filename="package://starbot_description/meshes/stl/joint_wheel_x.stl" scale = "0.8 0.8 0.8"/>
+                            <mesh filename="package://starbot_description/meshes/stl/joint_wheel_x.stl"/>
                         </geometry>
                     </xacro:if>
                 </xacro:if>
@@ -550,13 +550,13 @@
                     <xacro:unless value="${is_right}">
                         <!-- LH PRE_WHEEL -->
                         <geometry>
-                            <mesh filename="package://starbot_description/meshes/stl/joint_wheel_nx.stl" scale = "0.8 0.8 0.8"/>
+                            <mesh filename="package://starbot_description/meshes/stl/joint_wheel_nx.stl" />
                         </geometry>
                     </xacro:unless>
                     <xacro:if value="${is_right}">
                         <!-- RH PRE_WHEEL-->
                         <geometry>
-                            <mesh filename="package://starbot_description/meshes/stl/joint_wheel_ny.stl" scale = "0.8 0.8 0.8"/>
+                            <mesh filename="package://starbot_description/meshes/stl/joint_wheel_ny.stl"/>
                         </geometry>
                     </xacro:if>
                 </xacro:unless>
