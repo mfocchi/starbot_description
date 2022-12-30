@@ -1,6 +1,15 @@
 The purpose of this file is to help other students like us to use github. 
 In particular here belows are written some important commands to run and some possibile error you may enconter.
 
+CREATE A REPO IN YOUR REMOTE
+first create a folder then access it by terminal
+then git init
+go to github and copy https or ssh path
+git remote add origin insert your path copied
+then git pull origin 
+create a new branch with -> git checkout -b name_branch
+git branch to check in which branch are you, to switch branch git checkout name_branch 
+
 UPDATE YOUR REMOTE
 git pull remote_origin_branch branch
 ex. git pull origin starbot
