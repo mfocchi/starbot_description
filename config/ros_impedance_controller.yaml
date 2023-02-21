@@ -54,10 +54,10 @@
       rf_upper_leg_joint: 0.0
       lh_upper_leg_joint: 0.0
       rh_upper_leg_joint: 0.0
-      lf_lower_leg_joint: 0.0
-      rf_lower_leg_joint: 0.0
-      lh_lower_leg_joint: 0.0
-      rh_lower_leg_joint: 0.0
+      lf_lower_leg_joint: -0.15
+      rf_lower_leg_joint: -0.15
+      lh_lower_leg_joint: -0.15
+      rh_lower_leg_joint: -0.15
       lf_pre_wheel_joint: 0.0
       rf_pre_wheel_joint: 0.0
       lh_pre_wheel_joint: 0.0

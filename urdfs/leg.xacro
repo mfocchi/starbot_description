@@ -341,41 +341,7 @@
             </visual>
 
             <!--COLLISION-->
-            <collision>
-
-                <xacro:if value="${is_front}">
-                    <xacro:unless value="${is_right}">
-                        <!-- LF LOWER_LEG -->
-                         <origin xyz="0 ${LOWER_LEG_pos} 0" rpy="0 0 0" />
-                        <geometry>
-                            <mesh filename="package://starbot_description/meshes/stl/lower_leg_y.stl" />
-                        </geometry>
-                    </xacro:unless>
-                    <xacro:if value="${is_right}">
-                        <!-- RF LOWER_LEG -->
-                        <origin xyz="${LOWER_LEG_pos} 0 0" rpy="0 0 0" />
-                        <geometry>
-                            <mesh filename="package://starbot_description/meshes/stl/lower_leg_x.stl"/>
-                        </geometry>
-                    </xacro:if>
-                </xacro:if>
-                <xacro:unless value="${is_front}">
-                    <xacro:unless value="${is_right}">
-                        <!-- LH LOWER_LEG -->
-                        <origin xyz="-${LOWER_LEG_pos} 0 0" rpy="0 0 0" />
-                        <geometry>
-                            <mesh filename="package://starbot_description/meshes/stl/lower_leg_nx.stl" />
-                        </geometry>
-                    </xacro:unless>
-                    <xacro:if value="${is_right}">
-                        <!-- RH LOWER_LEG-->
-                         <origin xyz="0 -${LOWER_LEG_pos} 0" rpy="0 0 0" />
-                        <geometry>
-                            <mesh filename="package://starbot_description/meshes/stl/lower_leg_ny.stl"/>
-                        </geometry>
-                    </xacro:if>
-                </xacro:unless>
-            </collision>
+            
 
             <!-- LOWER LEG LINK INERTIAL -->
             <xacro:if value="${is_front}">
